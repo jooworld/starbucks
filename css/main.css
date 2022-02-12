@@ -1,0 +1,126 @@
+/* COMMON */
+body {
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+img {
+    display: block;
+    /* 이미지는 인라인 요소인데, 인라인 요소는 글자를 취급하기 때문에
+    밑에 약간의 여백을 가지고 있다. 따라서 이미지 아래에 약간의 여백이 생기는데
+    이를 해결하기 위해 display 속성을 block으로 처리해준다. */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER */
+header {
+    background-color: #f6f5f0;
+    border-bottom: 1px solid #c8c8c8;
+}
+
+header .inner {
+    width: 1100px;
+    /* 위아래에는 마진을 두지 않고 양쪽에 마진을 auto로 둠 */
+    height: 120px;
+    margin: 0 auto; 
+    position: relative;
+    /* header 부분의 수직 가운데에 위치하기 위하여 */
+}
+
+header .logo {
+    height: 75px;
+    position: absolute; /* header 부분의 수직 가운데에 위치하기 위하여 */
+    /* 부모 요소 기준으로 배치하겠다 라는 뜻!!! */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+header .sub-menu {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex; /* input검색창과 search아이콘을 하나로 합쳐줌 */
+}
+
+header .sub-menu ul.menu {
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+header .sub-menu ul.menu li {
+    position: relative;
+}
+
+header .sub-menu ul.menu li::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 12px;
+    background-color: #e5e5e5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+header .sub-menu ul.menu li:first-child::before {
+    /* Sign In 메뉴 앞의 구분선을 없애는 역할 */
+    display: none;
+}
+
+header .sub-menu ul.menu li a {
+    font-size: 12px;
+    padding: 11px 16px;
+    display: block;
+    color: #656565;
+}
+
+header .sub-menu ul.menu li a:hover {
+    color: #000;
+}
+
+header .sub-menu .search {
+    height: 34px;
+    position: relative;
+}
+
+header .sub-menu .search input {
+    width: 36px;
+    height: 34px;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+    color: #777;
+    font-size: 12px;
+    transition: width .4s;
+}
+
+header .sub-menu .search input:focus {
+    width: 190px;
+    border-color: #669900;
+}
+
+header .sub-menu .search .material-icons {
+    height: 24px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5px;
+    margin: auto; /* 수직, 수평을 맞춰줌 */
+    transition: .4s;
+}
+
+header .sub-menu .search.focused .material-icons {
+    opacity: 0; /* 검색 아이콘 사라지게 만들기 */
+}
