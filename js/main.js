@@ -36,4 +36,19 @@ window.addEventListener('scroll', _.throttle(function() {
     }
 }, 300));
 // _.throttle(함수, 시간)
-// github 테스트
+
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+fadeEls.forEach(function(fadeEl, index) {
+    // gsap.to(요소, 지속시간, 옵션);
+    gsap.to(fadeEl, 1, {
+        delay: (index + 1) * .7, // 0,7, 1.4, 2.1, 2.8초 뒤에 동작할 수 있는 구조
+        opacity: 1
+    });
+});
+
+// new Swiper(선택자, 옵션)
+new Swiper('.notice-line .swiper-container', {
+    direction: 'vertical',
+    autoplay: true,
+    loop: true
+});
