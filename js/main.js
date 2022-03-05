@@ -84,3 +84,25 @@ promotionToggleBtn.addEventListener('click', function() {
         promotionEl.classList.remove('hide');
     }
 });
+
+// 범위 랜던 함수(소수점 2자리까지)
+function random(min, max) {
+    // toFixed()를 통해 반환된 문자 데이터를,
+    // parseFloat()를 통해 소수점을 가지는 숫자 데이터로 변환
+    return parseFloat((Math.random() * (max - min) + min).toFixed(2))
+}
+
+function floatingObject(selector, delay, size) {
+    // gsap.to(요소, 시간, 옵션)
+    gsap.to(selector, random(1.5, 2.5), {
+        y: size,
+        repeat: -1,  // 무한 반복
+        yoyo: true, // 아래로 내려왔다가 다시 위로 올라가는 기능
+        ease: Power1.easeInOut,
+        delay: random(0, delay)// 처음에 몇 초간 멈췄다가 애니메이션 실행됨
+    });
+}
+
+floatingObject('.floating1', 1, 15);
+floatingObject('.floating2', .5, 15);
+floatingObject('.floating3', 1.5, 20);
