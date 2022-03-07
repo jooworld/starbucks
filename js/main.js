@@ -105,4 +105,18 @@ function floatingObject(selector, delay, size) {
 
 floatingObject('.floating1', 1, 15);
 floatingObject('.floating2', .5, 15);
-floatingObject('.floating3', 1.5, 20); //test
+floatingObject('.floating3', 1.5, 20);
+
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach(function(spyEl) {
+    // ScrollMagic : 자바스크립트 라이브러리
+    // Scene() : 특정한 요소를 감시하는 옵션을 지정해주는 메소드
+    // setClassToggle() : html class를 넣었다 뺐다 지정해주는 역할
+    new ScrollMagic
+        .Scene({
+            triggerElement: spyEl, // 보여짐 여부를 감시할 요소들
+            triggerHook: .8 // viewport에서 0.8지점에 오면 발동한다
+        })
+        .setClassToggle(spyEl, 'show') // spyEl을 감지하여 show class를 넣었다가 빼는 작업
+        .addTo(new ScrollMagic.Controller());
+});
