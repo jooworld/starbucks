@@ -16,9 +16,9 @@ function onYouTubeIframeAPIReady() { // 함수 이름을 유튜브를 제어해�
         playlist: 'An6LvWQuj_8' // 반복 재생할 유튜브 영상 ID 목록
     },
     events: {
-        onReady: function(event) {
-            event.target.mute() // 음소거
-        }
+      onReady: function(event) {
+          event.target.mute() // 음소거
+      }
     }
-  });
+  })
 }
